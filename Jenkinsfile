@@ -11,7 +11,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Adjust the deployment command based on your web server and file path
+                    // Create the target directory if it doesn't exist
+                    sh 'mkdir -p /travelbooking'
+
+                    // Deploy the website
                     sh 'cp -r * /travelbooking'
                 }
             }
