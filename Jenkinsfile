@@ -8,16 +8,23 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Build') {
             steps {
-                script {
-                    // Create the target directory in the Jenkins workspace
-                    sh 'mkdir -p $WORKSPACE/travelbooking'
-
-                    // Deploy the website
-                    sh 'cp -r * $WORKSPACE/travelbooking'
-                }
+                echo 'Building..'
+                // Add your build steps here
             }
+        }
+
+        stage('Archive') {
+            steps {
+                archiveArtifacts '**/*'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Archiving artifacts...'
         }
     }
 }
