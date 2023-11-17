@@ -11,10 +11,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // You might need to adjust this based on your web server configuration
-                    bat 'xcopy /s /y .\\* 'https://github.com/Devansh0911/travelbooking/tree/main'
+                    // Adjust the deployment command based on your web server and file path
+                    sh 'cp -r * https://github.com/Devansh0911/travelbooking/tree/main'
                 }
             }
         }
     }
 }
+
