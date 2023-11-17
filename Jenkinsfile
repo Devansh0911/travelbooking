@@ -14,11 +14,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                // Assuming your website content is in the 'dist' directory
-                sh "cp -r dist/* /var/www/html/"
-            }
+       
         }
     }
 
