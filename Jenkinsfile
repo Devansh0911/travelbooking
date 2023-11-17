@@ -2,32 +2,41 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Check out the source code from your version control system (e.g., Git)
-                // git 'your_repository_url_here'
-            }
-        }
-
         stage('Build') {
             steps {
-                // In this case, there's no compilation or build process, as it's a static HTML website
+                // Your build steps go here
+                echo 'Building the application...'
+                // For example, you might run a build script or compile your code
             }
         }
 
         stage('Test') {
             steps {
-                // You can add testing steps here if needed
+                // Your test steps go here
+                echo 'Running tests...'
+                // Add commands or scripts to run your tests
             }
         }
 
         stage('Deploy') {
             steps {
+                // Your deployment steps go here
+                echo 'Deploying the application...'
                 // Replace these placeholder values with your actual deployment configuration
-                // sh 'rsync -avz --delete path/to/your/website/* user@your_server:/path/to/deploy'
+                // For example, you might copy files to a server, push to a container registry, etc.
             }
         }
     }
 
-   
+    post {
+        success {
+            // This block runs if the pipeline is successful
+            echo 'Pipeline completed successfully!'
+        }
+
+        failure {
+            // This block runs if the pipeline fails
+            echo 'Pipeline failed. Deployment unsuccessful.'
+        }
+    }
 }
