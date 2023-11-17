@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Check out the source code from Git
-                git 'your_repository_url_here'
+                // Check out the source code from your version control system (e.g., Git)
+                // git 'your_repository_url_here'
             }
         }
 
         stage('Build') {
             steps {
-                // In this case, there's no compilation or build process for a static HTML website
+                // In this case, there's no compilation or build process, as it's a static HTML website
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Replace these placeholder values with your actual deployment configuration
-                sh 'rsync -avz --delete path/to/your/website/* user@your_server:/path/to/deploy'
+                // sh 'rsync -avz --delete path/to/your/website/* user@your_server:/path/to/deploy'
             }
         }
     }
