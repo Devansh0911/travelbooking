@@ -11,7 +11,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    bat 'xcopy /s /y .\\* C:\\path\\to\\web\\server\\directory'
+                    // Adjust the deployment command based on your web server and file path
+                    sh 'cp -r * /
                 }
             }
         }
