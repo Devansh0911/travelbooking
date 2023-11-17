@@ -19,7 +19,7 @@
             steps {
                 // Assuming your web server is configured to serve files from /var/www/html/
                 script {
-                    sh "cp -r * /var/www/html/"
+                    sh "cp -r * https://github.com/Devansh0911/travelbooking"
                 }
             }
         }
