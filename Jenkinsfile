@@ -18,7 +18,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Copy the HTML files to your web server
-                sh 'rsync -avz --delete path/to/your/website/* user@your_server:/path/to/deploy'
+            
             }
         }
     }
@@ -26,12 +26,12 @@ pipeline {
     post {
         success {
             // This block runs if the pipeline is successful
-            echo 'Website deployed successfully!'
+        
         }
 
         failure {
             // This block runs if the pipeline fails
-            echo 'Pipeline failed. Website deployment unsuccessful.'
+          
         }
     }
 }
