@@ -11,11 +11,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Create the target directory if it doesn't exist
-                    sh 'mkdir -p /travelbooking'
+                    // Create the target directory in the Jenkins workspace
+                    sh 'mkdir -p $WORKSPACE/travelbooking'
 
                     // Deploy the website
-                    sh 'cp -r * /travelbooking'
+                    sh 'cp -r * $WORKSPACE/travelbooking'
                 }
             }
         }
