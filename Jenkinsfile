@@ -11,8 +11,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Adjust the deployment command based on your web server and file path
-                    sh 'cp -r * C:\inetpub\wwwroot
+                    // Replace the following command with your deployment logic
+                    echo 'Deploying the website to the web server...'
+                    # Example: Copy files to the web server directory
+                    sh 'cp -r * /var/www/html'
                 }
             }
         }
