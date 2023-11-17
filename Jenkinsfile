@@ -11,10 +11,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Replace the following command with your deployment logic
-                    echo 'Deploying the website to the web server...'
-                    
-                    sh 'cp -r * /var/www/html'
+                    // You might need to adjust this based on your web server configuration
+                    bat 'xcopy /s /y .\\* C:\Users\HP-PC\Desktop\Travel Booking'
                 }
             }
         }
