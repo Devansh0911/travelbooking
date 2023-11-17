@@ -2,19 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building..'
+                checkout scm
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                script {
+                    bat 'xcopy /s /y .\\* C:\\path\\to\\web\\server\\directory'
+                }
             }
         }
     }
