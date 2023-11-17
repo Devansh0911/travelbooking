@@ -11,14 +11,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Replace '/path/to/web/server/directory' with the actual deployment path on your web server
-                    def deployPath = 'https://github.com/Devansh0911/travelbooking/tree/main'
-
-                    // Create the deployment directory if it doesn't exist
-                    sh "mkdir -p ${deployPath}"
-
-                    // Copy all files to the deployment directory
-                    sh "cp -r * ${deployPath}"
+                    // You might need to adjust this based on your web server configuration
+                    bat 'xcopy /s /y .\\* 'https://github.com/Devansh0911/travelbooking/tree/main'
                 }
             }
         }
