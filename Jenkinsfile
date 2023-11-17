@@ -6,8 +6,7 @@ pipeline {
             steps {
                 echo 'Building the application...'
                 // Simulate a build step (replace with actual build commands)
-                echo 'Compiling source code...'
-                echo 'Creating executable...'
+                sh 'mvn clean install' // Maven build
                 echo 'Build successful!'
             }
         }
@@ -16,8 +15,8 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 // Simulate running tests (replace with actual test commands)
-                echo 'Executing unit tests...'
-                echo 'All tests passed!'
+                sh 'mvn test' // Maven run tests
+                echo 'Tests passed!'
             }
         }
 
@@ -25,8 +24,8 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
                 // Simulate deployment (replace with actual deployment steps)
-                echo 'Copying files to the server...'
-                echo 'Restarting application server...'
+                sh 'echo "Copying files to the server..."' // Placeholder for file copy
+                sh 'echo "Restarting application server..."' // Placeholder for server restart
                 echo 'Deployment successful!'
             }
         }
