@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Adjust the deployment command based on your web server and file path
-                    sh 'cp -r * /
+                    sh 'cp -r * C:\inetpub\wwwroot
                 }
             }
         }
