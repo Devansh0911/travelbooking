@@ -1,4 +1,4 @@
-pipeline {
+    pipeline {
     agent any
     
     stages {
@@ -10,18 +10,25 @@ pipeline {
         
         stage('Build') {
             steps {
-                // You may have additional build steps here if needed
+                // In the case of a static HTML website, there is no actual build step.
+                // You might have additional build steps for minification, compression, etc.
             }
         }
 
-       
+        stage('Deploy') {
+            steps {
+                // Assuming your web server is configured to serve files from /var/www/html/
+                script {
+                    sh "cp -r * /var/www/html/"
+                }
+            }
         }
     }
 
     post {
         success {
-            echo 'Pipeline succeeded! Triggering deployment...'
-            // Add additional deployment steps or notifications here
+            echo 'Deployment succeeded!'
+            // Add additional post-deployment steps or notifications here
         }
     }
 }
