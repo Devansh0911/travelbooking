@@ -29,15 +29,5 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            // This block runs if the pipeline is successful
-            echo 'Website deployed successfully!'
-        }
-
-        failure {
-            // This block runs if the pipeline fails
-            echo 'Pipeline failed. Website deployment unsuccessful.'
-        }
-    }
+   
 }
