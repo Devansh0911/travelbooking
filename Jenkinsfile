@@ -8,23 +8,19 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                echo 'Building..'
-                // Add your build steps here
-            }
-        }
+                script {
+                    // Replace '/path/to/web/server/directory' with the actual deployment path on your web server
+                    def deployPath = '/path/to/web/server/directory'
 
-        stage('Archive') {
-            steps {
-                archiveArtifacts '**/*'
-            }
-        }
-    }
+                    // Create the deployment directory if it doesn't exist
+                    sh "mkdir -p ${deployPath}"
 
-    post {
-        success {
-            echo 'Archiving artifacts...'
+                    // Copy all files to the deployment directory
+                    sh "cp -r * ${deployPath}"
+                }
+            }
         }
     }
 }
